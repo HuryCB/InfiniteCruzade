@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875bc99f0ba6acb479108bedc5eeb630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 200
   jumpHigh: 400
   rb: {fileID: 6151196753507332244}
   grounded: 1

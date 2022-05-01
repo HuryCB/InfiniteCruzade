@@ -80,7 +80,7 @@ public class Minion : MonoBehaviour
     }
     private void walk()
     {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -94,8 +94,8 @@ public class Minion : MonoBehaviour
     public bool jump()
     {
 
-
-        rb.AddForce(new Vector2(0, jumpHigh), ForceMode2D.Force);
+        rb.velocity = Vector2.up * jumpHigh * Time.deltaTime;
+        // rb.AddForce(new Vector2(0, jumpHigh), ForceMode2D.Force);
         return true;
     }
 }

@@ -11,22 +11,26 @@ public class PartyManager : MonoBehaviour
 
     [SerializeField] Minion firstMinion;
 
-    public GameObject jumpBox;
+    public GameObject shortJumpBox;
+    public GameObject bigJumpBox;
     public GameObject minion;
 
-    private void Awake() 
-{ 
-    // If there is an instance, and it's not me, delete myself.
-    
-    if (instance != null && instance != this) 
-    { 
-        Destroy(this); 
-    } 
-    else 
-    { 
-        instance = this; 
-    } 
-}
+    public bool jumpPressed = false;
+    public bool jumpDown = false;
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     public Minion getFirstMinion()
     {
@@ -42,21 +46,48 @@ public class PartyManager : MonoBehaviour
 
     private void partyJump()
     {
-        if (!checkJumpInput())
-        {
-            return;
-        }
+        // if (!checkJumpInput())
+        // {
+        //     return;
+        // }
         // Debug.Log("deveria pular");
+        jumpDown = (Input.GetKey(KeyCode.Space));
+        jumpPressed = (Input.GetKeyDown(KeyCode.Space));
+
+        acctualyJump();
+
+    }
+
+    private void FixedUpdate()
+    {
+        
+    }
+
+    private void acctualyJump()
+    {
+        // if (Input.GetKeyUp(KeyCode.Space))
+        // {
+        //     jumpPressed = false;
+        // }
         foreach (Minion minion in party)
         {
             if (minion.grounded && minion.rb.velocity.y >= 0)
             {
-                Instantiate(jumpBox, minion.transform.position, Quaternion.identity);
-                break;
+                if (jumpPressed)
+                {
+                    Debug.Log("Small");
+                    Instantiate(shortJumpBox, minion.transform.position, Quaternion.identity);
+                    break;
+                }
+
+                if (jumpDown)
+                {
+                    Debug.Log("Big");
+                    Instantiate(bigJumpBox, minion.transform.position, Quaternion.identity);
+                    break;
+                }
             }
         }
-
-        // firstMinion.jump();
     }
 
     private void verifyFirstMinion()
@@ -84,14 +115,20 @@ public class PartyManager : MonoBehaviour
     }
 
     private bool checkJumpInput()
+    // Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonUp(0) || 
     {
-        bool input = (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonUp(0) || Input.GetKeyDown(KeyCode.Space);
+        bool input = (Input.GetKeyDown(KeyCode.Space));
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Space is pressed");
+        }
         if (!input)
         {
             return false;
         }
-        // Debug.Log("teste");
+        Debug.Log("Space was pressed");
+
 
         return true;
     }
