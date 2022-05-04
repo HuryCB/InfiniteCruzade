@@ -8,7 +8,9 @@ public abstract class StateMachine
     public abstract void EnterState(GameObject gm);
     public abstract void ExitState();
 
+
     public abstract void Update();
+    public abstract void FixedUpdate();
 
     public abstract void OnTriggerEnter2D(Collider2D other);
 

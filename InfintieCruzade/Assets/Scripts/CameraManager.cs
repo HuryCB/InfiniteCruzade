@@ -20,8 +20,11 @@ public class CameraManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        transform.position =  new Vector3(minion.transform.position.x, transform.position.y,transform.position.z);
-       
+        //diminuir a travada da tela?
+        if(transform.position.x > minion.transform.position.x){
+            return;
+        }
+        transform.position =  new Vector3(minion.transform.position.x, transform.position.y,transform.position.z);     
     }
 
 }

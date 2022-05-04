@@ -51,16 +51,19 @@ public class PartyManager : MonoBehaviour
         //     return;
         // }
         // Debug.Log("deveria pular");
-        jumpDown = (Input.GetKey(KeyCode.Space));
-        jumpPressed = (Input.GetKeyDown(KeyCode.Space));
-
+        // jumpDown = (Input.GetKey(KeyCode.Space));
+        // jumpPressed = (Input.GetKeyDown(KeyCode.Space));
+        if (!checkJumpInput())
+        {
+            return;
+        }
         acctualyJump();
 
     }
 
     private void FixedUpdate()
     {
-        
+
     }
 
     private void acctualyJump()
@@ -69,24 +72,28 @@ public class PartyManager : MonoBehaviour
         // {
         //     jumpPressed = false;
         // }
+        // int i = 0;
         foreach (Minion minion in party)
         {
-            if (minion.grounded && minion.rb.velocity.y >= 0)
+            if (minion.currentState == minion.runningState && minion.rb.velocity.y >= 0)
             {
-                if (jumpPressed)
-                {
-                    Debug.Log("Small");
+                // if (jumpPressed)
+                // {
+                    // Debug.Log("Small");
                     Instantiate(shortJumpBox, minion.transform.position, Quaternion.identity);
+                    // Debug.Log("Created by " + i);
                     break;
-                }
+                // }
 
-                if (jumpDown)
-                {
-                    Debug.Log("Big");
-                    Instantiate(bigJumpBox, minion.transform.position, Quaternion.identity);
-                    break;
-                }
+                // if (jumpDown)
+                // {
+                //     Debug.Log("Big");
+                //     Instantiate(bigJumpBox, minion.transform.position, Quaternion.identity);
+                //     break;
+                // }
             }
+
+            // i++;
         }
     }
 
@@ -117,19 +124,22 @@ public class PartyManager : MonoBehaviour
     private bool checkJumpInput()
     // Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonUp(0) || 
     {
-        bool input = (Input.GetKeyDown(KeyCode.Space));
+        // bool input = (Input.GetKeyDown(KeyCode.Space));
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Debug.Log("Space is pressed");
-        }
-        if (!input)
-        {
-            return false;
-        }
-        Debug.Log("Space was pressed");
+        // if (Input.GetKey(KeyCode.Space))
+        // {
+        //     Debug.Log("Space is pressed");
+        // }
+        // if (!input)
+        // {
+        //     return false;
+        // }
+        // Debug.Log("Space was pressed");
 
 
-        return true;
+        // return true;
+        bool input = (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonUp(0) || Input.GetKeyDown(KeyCode.Space);
+        // Debug.Log(input);
+        return input;
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 946973404}
   m_Layer: 6
   m_Name: Minion
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  jumpHigh: 400
+  jumpHigh: 300
   rb: {fileID: 6151196753507332244}
   grounded: 1
+  jumpTimeDuration: 0.15
+  fallGravity: 20

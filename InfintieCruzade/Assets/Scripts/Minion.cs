@@ -10,11 +10,15 @@ public class Minion : MonoBehaviour
 
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] public bool grounded = true;
+    public float jumpTimeDuration = 0.5f;
 
     public StateMachine currentState;
     public MinionRunningState runningState = new MinionRunningState();
 
     public MinionJumpingState jumpingState = new MinionJumpingState();
+    public MinionFallingState fallingState = new MinionFallingState();
+
+    public float fallGravity = 10;
 
     // public bool isFirstMinion = false;
 
@@ -45,6 +49,7 @@ public class Minion : MonoBehaviour
     private void FixedUpdate()
     {
         walk();
+        currentState.FixedUpdate();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -7,10 +7,12 @@ public class MinionRunningState : StateMachine
     public Minion minion;
 
 
+
     public override void EnterState(GameObject minion)
     {
 
         this.minion = minion.GetComponent<Minion>();
+
         // Debug.Log("Running state");
     }
 
@@ -38,6 +40,11 @@ public class MinionRunningState : StateMachine
     }
     public override void Update()
     {
+
         // Debug.Log("sucesso");
+    }
+
+    public override void FixedUpdate()
+    {
     }
 }
