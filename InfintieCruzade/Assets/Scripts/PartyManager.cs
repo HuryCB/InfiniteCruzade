@@ -11,8 +11,9 @@ public class PartyManager : MonoBehaviour
 
     [SerializeField] Minion firstMinion;
 
-    public GameObject shortJumpBox;
-    public GameObject bigJumpBox;
+    public GameObject jumpBox;
+
+    public GameObject fallBox;
     public GameObject minion;
 
     public bool jumpPressed = false;
@@ -42,6 +43,22 @@ public class PartyManager : MonoBehaviour
     {
         verifyFirstMinion();
         partyJump();
+        partyFall();
+    }
+
+    private void partyFall()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            foreach (Minion minion in party)
+            {
+                if (minion.currentState == minion.jumpingState)
+                {
+                    Instantiate(fallBox, minion.transform.position, Quaternion.identity);
+                    break;
+                }
+            }
+        }
     }
 
     private void partyJump()
@@ -66,6 +83,14 @@ public class PartyManager : MonoBehaviour
 
     }
 
+    public void killMinion(Minion minion){
+        if(this.party.Count == 1){
+            GameManager.instance.restart();
+            return;
+        }
+        this.party.Remove(minion);
+        Destroy(minion.gameObject);
+    }
     private void acctualyJump()
     {
         // if (Input.GetKeyUp(KeyCode.Space))
@@ -79,10 +104,10 @@ public class PartyManager : MonoBehaviour
             {
                 // if (jumpPressed)
                 // {
-                    // Debug.Log("Small");
-                    Instantiate(shortJumpBox, minion.transform.position, Quaternion.identity);
-                    // Debug.Log("Created by " + i);
-                    break;
+                // Debug.Log("Small");
+                Instantiate(jumpBox, minion.transform.position, Quaternion.identity);
+                // Debug.Log("Created by " + i);
+                break;
                 // }
 
                 // if (jumpDown)

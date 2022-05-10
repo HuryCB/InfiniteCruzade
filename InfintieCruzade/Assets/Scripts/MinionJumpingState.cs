@@ -24,7 +24,11 @@ public class MinionJumpingState : StateMachine
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.gameObject.CompareTag("fallBox"))
+        {
+            // Debug.Log("fallBox");
+            minion.SwitchState(minion.fallingState);
+        }
     }
 
     public override void ExitState()
@@ -35,15 +39,12 @@ public class MinionJumpingState : StateMachine
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        // if (collision.gameObject.CompareTag("ground"))
-        // {
-        //     minion.SwitchState(minion.runningState);
-        // }
     }
 
     public override void Update()
     {   // this.minion.rb.AddForce(new Vector2(0, this.minion.jumpHigh), ForceMode2D.Force);
-        if(minion.rb.velocity.y < 0){
+        if (minion.rb.velocity.y < 0)
+        {
             minion.SwitchState(minion.fallingState);
         }
     }

@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  jumpHigh: 300
+  jumpHigh: 400
   rb: {fileID: 6151196753507332244}
   grounded: 1
-  jumpTimeDuration: 0.15
+  jumpTimeDuration: 0.3
   fallGravity: 20

@@ -48,5 +48,7 @@ MonoBehaviour:
   - {fileID: 0}
   firstMinion: {fileID: 0}
   shortJumpBox: {fileID: 0}
-  bigJumpBox: {fileID: 0}
+  fallBox: {fileID: 8032410578433698545, guid: 9e6b017b6c7f6d049b86c2f7ad4332eb, type: 3}
   minion: {fileID: 6151196753507332247, guid: e289968faa419bd4b8c9e1e8fae81d5e, type: 3}
+  jumpPressed: 0
+  jumpDown: 0

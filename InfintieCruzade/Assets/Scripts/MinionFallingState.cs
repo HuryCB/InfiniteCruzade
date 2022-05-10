@@ -11,7 +11,7 @@ public class MinionFallingState : StateMachine
     {
         this.minion = gm.GetComponent<Minion>();
         fallGravity = minion.fallGravity;
-        Debug.Log("falling");
+        // Debug.Log("falling");
 
     }
 

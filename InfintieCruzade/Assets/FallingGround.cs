@@ -6,6 +6,7 @@ using UnityEngine;
 public class FallingGround : MonoBehaviour
 {
     public bool hasFallen = false;
+    public Animator animator;
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -15,6 +16,7 @@ public class FallingGround : MonoBehaviour
             if (!hasFallen)
             {
                 hasFallen = true;
+                fall();
                 // Invoke("fall",1);
             }
             // grounded = true;
@@ -23,7 +25,8 @@ public class FallingGround : MonoBehaviour
 
     private void fall()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 2, 0);
+        animator.SetTrigger("fall");
+        // transform.position = new Vector3(transform.position.x, transform.position.y - 2, 0);
 
     }
 }

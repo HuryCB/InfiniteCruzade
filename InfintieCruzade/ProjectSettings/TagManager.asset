@@ -9,6 +9,8 @@ TagManager:
   - jumpBox
   - fall
   - collectable
+  - fallBox
+  - deleteBox
   layers:
   - Default
   - TransparentFX
