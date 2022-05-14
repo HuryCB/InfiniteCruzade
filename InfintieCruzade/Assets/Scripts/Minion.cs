@@ -20,6 +20,7 @@ public class Minion : MonoBehaviour
 
     public float fallGravity = 10;
 
+
     // public bool isFirstMinion = false;
 
     private void Start()
@@ -68,7 +69,9 @@ public class Minion : MonoBehaviour
         if(other.CompareTag("collectable")){
             Destroy(other.gameObject);
             List<Minion>party =  PartyManager.instance.party;
-            party.Add(Instantiate(PartyManager.instance.minion,party[party.Count-1].transform.position-new Vector3(0.5f,0,0), Quaternion.identity).GetComponent<Minion>());
+            Minion minion =Instantiate(PartyManager.instance.minion,party[party.Count-1].transform.position-new Vector3(0.5f,0,0), Quaternion.identity).GetComponent<Minion>();
+            party.Add(minion);
+            minion.currentState = this.currentState;
         }
         // if (other.CompareTag("jumpBox"))
         // {

@@ -41,6 +41,9 @@ public class PartyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseControl.gameIsPaused){
+            return;
+        }
         verifyFirstMinion();
         partyJump();
         partyFall();
@@ -54,7 +57,7 @@ public class PartyManager : MonoBehaviour
             {
                 if (minion.currentState == minion.jumpingState)
                 {
-                    Instantiate(fallBox, minion.transform.position, Quaternion.identity);
+                    Instantiate(fallBox, minion.transform.position, Quaternion.identity);                
                     break;
                 }
             }
@@ -74,7 +77,7 @@ public class PartyManager : MonoBehaviour
         {
             return;
         }
-        acctualyJump();
+        actuallyJump();
 
     }
 
@@ -91,7 +94,7 @@ public class PartyManager : MonoBehaviour
         this.party.Remove(minion);
         Destroy(minion.gameObject);
     }
-    private void acctualyJump()
+    private void actuallyJump()
     {
         // if (Input.GetKeyUp(KeyCode.Space))
         // {
@@ -106,6 +109,7 @@ public class PartyManager : MonoBehaviour
                 // {
                 // Debug.Log("Small");
                 Instantiate(jumpBox, minion.transform.position, Quaternion.identity);
+                 AudioManager.Play(AudioManager.instance.playerJumpSound);
                 // Debug.Log("Created by " + i);
                 break;
                 // }

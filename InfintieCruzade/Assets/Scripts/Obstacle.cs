@@ -9,10 +9,7 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     private void Update()
     {
-        if (minionsColliding == minionsToDestroyThis)
-        {
-            Destroy(this.gameObject);
-        }
+        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -31,6 +28,9 @@ public class Obstacle : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-
+        if (minionsColliding == minionsToDestroyThis)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

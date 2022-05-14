@@ -26,7 +26,13 @@ public class FallingGround : MonoBehaviour
     private void fall()
     {
         animator.SetTrigger("fall");
+        AudioManager.Play(AudioManager.instance.earthQuakeSound);
+                // Debug.Log("Created by " + i);
         // transform.position = new Vector3(transform.position.x, transform.position.y - 2, 0);
 
+    }
+
+    public void stopFall(){
+         AudioManager.Stop(AudioManager.instance.earthQuakeSound);
     }
 }
