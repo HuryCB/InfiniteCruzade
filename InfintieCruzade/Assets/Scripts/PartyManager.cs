@@ -109,7 +109,7 @@ public class PartyManager : MonoBehaviour
                 // {
                 // Debug.Log("Small");
                 Instantiate(jumpBox, minion.transform.position, Quaternion.identity);
-                 AudioManager.Play(AudioManager.instance.playerJumpSound);
+                AudioManager.Play(AudioManager.instance.playerJumpSound);
                 // Debug.Log("Created by " + i);
                 break;
                 // }

@@ -34,10 +34,12 @@ public class PauseControl : MonoBehaviour
         if (gameIsPaused)
         {
             Time.timeScale = 0f;
+            AudioListener.pause = true;
         }
         else
         {
             Time.timeScale = 1;
+            AudioListener.pause = false;
         }
     }
 }

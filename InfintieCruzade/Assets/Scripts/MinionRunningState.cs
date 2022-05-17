@@ -47,4 +47,9 @@ public class MinionRunningState : StateMachine
     public override void FixedUpdate()
     {
     }
+
+    public override void OnTriggerStay2D(Collider2D other)
+    {
+        
+    }
 }

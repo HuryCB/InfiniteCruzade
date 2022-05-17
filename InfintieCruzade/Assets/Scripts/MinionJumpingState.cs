@@ -62,4 +62,9 @@ public class MinionJumpingState : StateMachine
             this.minion.rb.velocity = new Vector2(this.minion.rb.velocity.x, this.minion.jumpHigh * Time.deltaTime);
 
     }
+
+    public override void OnTriggerStay2D(Collider2D other)
+    {
+        
+    }
 }

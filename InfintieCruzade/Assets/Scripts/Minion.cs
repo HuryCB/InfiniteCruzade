@@ -20,6 +20,8 @@ public class Minion : MonoBehaviour
 
     public float fallGravity = 10;
 
+    public int worlds = 1;
+
 
     // public bool isFirstMinion = false;
 
@@ -72,6 +74,12 @@ public class Minion : MonoBehaviour
             Minion minion =Instantiate(PartyManager.instance.minion,party[party.Count-1].transform.position-new Vector3(0.5f,0,0), Quaternion.identity).GetComponent<Minion>();
             party.Add(minion);
             minion.currentState = this.currentState;
+        }
+        if(other.gameObject.CompareTag("flag")){
+            Debug.Log("Colidiu");
+            Destroy(other.gameObject);
+            Vector3 pos = new Vector3(worlds*30, 0f, transform.position.z);
+            Instantiate(WorldGeneration.instance.worlds[0], pos, Quaternion.identity);
         }
         // if (other.CompareTag("jumpBox"))
         // {

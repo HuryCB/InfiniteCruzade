@@ -20,5 +20,18 @@ public class DeleteObjectsOnCollide : MonoBehaviour
         if(other.gameObject.CompareTag("collectable")){
             Destroy(other.gameObject);
         }
+        // if(other.gameObject.CompareTag("flag")){
+        //     Debug.Log("Colidiu");
+        //     Vector3 pos = new Vector3(0f, transform.position.y, transform.position.z);
+        //     Instantiate(WorldGeneration.worlds[0], pos, Quaternion.identity);
+        // }
     }
+
+    // private void OnCollisionEnter2D(Collision2D col){
+    //     if(col.gameObject.CompareTag("flag")){
+    //         Debug.Log("Colidiu");
+    //         Vector3 pos = new Vector3(0f, transform.position.y, transform.position.z);
+    //         Instantiate(WorldGeneration.worlds[0], pos, Quaternion.identity);
+    //     }
+    // }
 }

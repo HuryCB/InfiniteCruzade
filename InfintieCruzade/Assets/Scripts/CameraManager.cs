@@ -20,6 +20,9 @@ public class CameraManager : MonoBehaviour
     }
     private void LateUpdate()
     {
+        if(minion == null){
+            return;
+        }
         //diminuir a travada da tela?
         if(transform.position.x > minion.transform.position.x){
             return;

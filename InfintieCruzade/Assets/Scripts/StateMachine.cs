@@ -14,6 +14,8 @@ public abstract class StateMachine
 
     public abstract void OnTriggerEnter2D(Collider2D other);
 
+    public abstract void OnTriggerStay2D(Collider2D other);
+
     public abstract void OnCollisionEnter2D(Collision2D collision);
     // public abstract void  OnTriggerStay2D(Collider2D other);
         

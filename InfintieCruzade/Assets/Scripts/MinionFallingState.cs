@@ -41,6 +41,11 @@ public class MinionFallingState : StateMachine
 
     }
 
+    public override void OnTriggerStay2D(Collider2D other)
+    {
+       
+    }
+
     public override void Update()
     {
 
