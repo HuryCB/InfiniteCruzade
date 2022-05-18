@@ -57,6 +57,7 @@ public class Minion : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("colidiu");
         currentState.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("ground"))
         {
@@ -75,12 +76,15 @@ public class Minion : MonoBehaviour
             party.Add(minion);
             minion.currentState = this.currentState;
         }
-        if(other.gameObject.CompareTag("flag")){
-            Debug.Log("Colidiu");
-            Destroy(other.gameObject);
-            Vector3 pos = new Vector3(worlds*30, 0f, transform.position.z);
-            Instantiate(WorldGeneration.instance.worlds[0], pos, Quaternion.identity);
-        }
+        // if(other.gameObject.CompareTag("flag")){
+        //     Debug.Log("Colidiu");
+        //     other.gameObject.SetActive(false);
+        //     Destroy(other.gameObject);
+        //     Vector3 pos = new Vector3(worlds*30, 0f, transform.position.z);
+        //     // Instantiate(WorldGeneration.instance.worlds[0], pos, Quaternion.identity, WorldGeneration.instance.worldGrid.transform);
+        //     // world.transform.position += pos;
+        //     // Debug.Log(worlds*30);
+        // }
         // if (other.CompareTag("jumpBox"))
         // {
         //     //  if(isFirstMinion){

@@ -152,3 +152,4 @@ MonoBehaviour:
   grounded: 1
   jumpTimeDuration: 0.3
   fallGravity: 20
+  worlds: 1

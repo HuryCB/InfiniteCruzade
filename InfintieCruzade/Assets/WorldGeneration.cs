@@ -7,6 +7,8 @@ public class WorldGeneration: MonoBehaviour
     public static WorldGeneration instance;
     public List<GameObject> worlds = new List<GameObject>();
 
+    public GameObject worldGrid;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
